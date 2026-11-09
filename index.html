@@ -88,6 +88,25 @@ body.open aside{transform:none}
 .r.p{grid-template-columns:.6rem 1fr}
 .hero svg{opacity:.35}
 }
+/* الصفحة الرئيسية (الغلاف): بحجم الشاشة فقط دون شريط تمرير */
+body.cover{display:flex;flex-direction:column;height:calc(100vh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));overflow:hidden}
+body.cover main{flex:1 1 auto;min-height:0;display:flex}
+body.cover article{flex:1 1 auto;min-height:0;display:flex;margin:0;width:100%}
+body.cover .cv{flex:1 1 auto;min-height:0;width:100%;justify-content:flex-start;overflow-y:auto;padding:clamp(.6rem,2.5vh,2.5rem) 1.5rem}
+body.cover .cv>:first-child{margin-top:auto}
+body.cover .cv>:last-child{margin-bottom:auto}
+body.cover .cv img{width:clamp(70px,17vh,200px)}
+body.cover .cv .u{margin:clamp(.4rem,1.4vh,1.1rem) 0 0;font-size:clamp(.95rem,2.4vh,1.15rem);line-height:1.6}
+body.cover .cv h1{font-size:clamp(1.3rem,min(5.5vw,6.2vh),3.4rem);line-height:1.35;margin:clamp(.3rem,1vh,.7rem) auto 0}
+body.cover .cv hr{margin:clamp(.6rem,2.2vh,1.8rem) auto}
+body.cover .cv .cr{gap:clamp(.6rem,2vh,1.8rem)}
+body.cover .cv .cr p{font-size:clamp(.9rem,2.4vh,1.2rem);line-height:1.8}
+body.cover .cv h3{margin:0;font-size:clamp(.9rem,2.2vh,1.05rem)}
+body.cover .cv a.go{margin-top:clamp(.7rem,2.8vh,2.4rem);padding:.6rem 2rem}
+.license{grid-column:1/-1;flex:none;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.2rem .5rem;padding:.4rem 1rem .5rem;font-size:.8rem;line-height:1.6;color:var(--mute);text-align:center}
+.license a{color:var(--acc)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .license img{filter:invert(1)}}
+:root[data-theme="dark"] .license img{filter:invert(1)}
 </style>
 </head>
 <body>
@@ -173,10 +192,8 @@ if(e.key==='ArrowLeft'&&n<N)location.hash='s'+(n+1);if(e.key==='ArrowRight'&&n>0
 $('#mb').onclick=()=>document.body.classList.toggle('open');
 render();
 </script>
-</body>
-
-<div style="display: flex; align-items: center; gap: 10px; justify-content: center;">
+<footer class="license">
 <a href="https://example.com">وزارة التربية والتعليم</a> © 2026 by <a href="https://haytham172-afk.github.io/haytham-amena-amna/#s1">haytham</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
-</div>
-
+</footer>
+</body>
 </html>
